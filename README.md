@@ -1,8 +1,5 @@
-# React + Vite
+## Explorista
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+Welcome to Explorista, your gateway to a world of captivating Online Experiences. Embark on a journey of discovery without leaving your home, as you join unique and interactive activities guided by one-of-a-kind hosts. From hands-on workshops to immersive cultural explorations, Explorista brings the world to your screen, allowing you to uncover hidden talents, expand your horizons, and connect with fellow explorers globally. With Explorista, adventure knows no bounds, and it's all just a click away.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
