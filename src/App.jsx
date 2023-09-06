@@ -1,15 +1,19 @@
 import "./App.css";
-import CardList from "./components/Cards/CardList";
-import Hero from "./components/Hero/Hero";
-import Navbar from "./components/Navbar/Navbar";
-import data from "./data"
+import Navbar from "../src/components/Navbar/Navbar";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Home, About, Contact } from "./pages/index";
 
 export default function App() {
   return (
-    <>
-      <Navbar />
-      <Hero />
-      <CardList data={data}/>
-    </>
+    <div className="app">
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </Router>
+    </div>
   );
 }

@@ -6,6 +6,10 @@ body {
   margin: 0;
 }
 
+.app {
+  background-color:whitesmoke;
+}
+
 nav {
   height: 60px;
   padding: 13px 36px;
