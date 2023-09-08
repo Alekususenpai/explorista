@@ -11,6 +11,7 @@ export default [
                     },
                     location: "Online",
                     openSpots: 0,
+                    styling: 'row-start-3'
           },
           {
                     id: 2,
@@ -24,6 +25,7 @@ export default [
                     },
                     location: "Online",
                     openSpots: 27,
+                    styling: 'row-start-2'
           },
           {
                     id: 3,
@@ -37,5 +39,48 @@ export default [
                     },
                     location: "Norway",
                     openSpots: 3,
-          }
+                    styling: 'row-start-4',
+          },
+          {
+                    id: 4,
+                    title: "Artificial intelligence",
+                    description: "Dive into the future of technology and join our online class to discover the wonders of AI.",
+                    price: 50,
+                    coverImg: "ai.jpg",
+                    stats: {
+                              rating: 4.8,
+                              reviewCount: 2
+                    },
+                    location: "Online",
+                    openSpots: 3,
+                    styling: 'col-start-3'
+          },
+          {
+                    id: 5,
+                    title: "Singing",
+                    description: "Unleash your inner songbird and enroll in our online singing class to elevate your vocal talents.",
+                    price: 50,
+                    coverImg: "singing.jpg",
+                    stats: {
+                              rating: 4.8,
+                              reviewCount: 2
+                    },
+                    location: "Online",
+                    openSpots: 3,
+                    styling: 'col-start-3 '
+          },
+          {
+                    id: 6,
+                    title: "Beekeeping",
+                    description: "Experience the sweet art of beekeeping from the comfort of your home with our engaging online class..",
+                    price: 50,
+                    coverImg: "beekeeping.jpg",
+                    stats: {
+                              rating: 4.8,
+                              reviewCount: 2
+                    },
+                    location: "Online",
+                    openSpots: 3,
+                    styling: 'col-start-4 row-start-2',
+          },
 ]
