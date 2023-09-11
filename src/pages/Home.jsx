@@ -7,7 +7,9 @@ const Home = () => {
     <main className="flex flex-col-reverse md:flex-row md:h-[100vh] md:my-5 items-center justify-around">
       <section className="md:w-[45%] text-center my-10">
         <div className="mb-10">
-          <h1 className="md:text-[43px] text-3xl font-black">Welcome to Explorista</h1>
+          <h1 className="md:text-[43px] text-3xl font-black">
+            Welcome to Explorista
+          </h1>
           <h2 className="md:text-2xl text-xl my-3 font-light">
             Your gateway to a world of captivating online experiences
           </h2>
@@ -49,12 +51,12 @@ const Home = () => {
       </section>
       <section className="md:w-[45%] my-10 order-1">
         <div className="grid grid-cols-4 grid-rows-5 gap-1.5">
-          {data.map(img => (
+          {data.map((img) => (
             <img
               key={img.id}
               src={`images/${img.coverImg}`}
               alt={img.title}
-              className={`col-span-1 row-span-2 ${img.styling} w-[170px] lg:h-[210px] h-[150px] object-cover rounded-md`}
+              className={`col-span-1 row-span-2 ${img.styling} w-[170px] lg:h-[210px] h-[150px] object-cover rounded-md hover:shadow-2xl transition-transform transform-gpu hover:scale-110 hover:-translate-x-6`}
             ></img>
           ))}
         </div>
@@ -64,4 +66,3 @@ const Home = () => {
 };
 
 export default Home;
-

@@ -11,7 +11,7 @@ import {
 
 export default function App() {
   return (
-    <div className="bg-hero py-5 lg:px-16 px-8 relative">
+    <div className="bg-hero py-5 lg:px-16 px-8 relative min-h-[100vh]">
       <Router>
         <Navbar />
         <Routes>

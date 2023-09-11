@@ -65,7 +65,7 @@ export default function Navbar() {
         onClick={() => setToggle(!toggle)}
       />
 
-      <div className={`${!toggle ? "hidden" : "absolute top-14 left-0 w-full bg-hero-opacity"}`}>
+      <div className={`${!toggle ? "hidden" : "absolute top-14 left-0 z-10 w-full bg-hero-opacity"}`}>
         <ul className="flex flex-col items-center font-light gap-2 my-4">
           <li>
             {isUserLogged ? (
