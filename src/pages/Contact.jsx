@@ -103,7 +103,7 @@ const Contact = () => {
 
   return (
     <div className={`my-16 flex justify-center items-center overflow-hidden`}>
-      <div className="w-full md:w-[600px] p-8 rounded-2xl bg-primary">
+      <div className="w-full md:w-[400px] p-8 rounded-2xl bg-primary">
         <p className="text-white font-bold text-4xl my-2">Get in touch.</p>
         <h3 className="text-white font-bold text-2xl">Contact.</h3>
         {showToast && <ToastMessage isSent={isSent} />}
