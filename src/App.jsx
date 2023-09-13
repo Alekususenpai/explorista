@@ -7,6 +7,7 @@ import {
   Explore,
   PartnerWithUs,
   Profile,
+  Error
 } from "./pages/index";
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="/explore" element={<Explore />} />
           <Route path="/partners" element={<PartnerWithUs />} />
           <Route path="/login" element={<Profile />} />
+          <Route path="/error" element={<Error />} />
         </Routes>
       </Router>
     </div>

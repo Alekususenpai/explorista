@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
+import { illustration } from "../assets/index";
 import emailjs from "@emailjs/browser";
 
 const ToastMessage = ({ isSent }) => {
@@ -102,15 +103,15 @@ const Contact = () => {
   };
 
   return (
-    <div className={`my-16 flex justify-center items-center overflow-hidden`}>
+    <div className={`my-16 flex md:flex-row flex-col-reverse items-center justify-center gap-[100px]`}>
       <div className="w-full md:w-[400px] p-8 rounded-2xl bg-primary">
-        <p className="text-white font-bold text-4xl my-2">Get in touch.</p>
-        <h3 className="text-white font-bold text-2xl">Contact.</h3>
+        <p className="text-white font-bold text-2xl">Get in touch.</p>
+        <h3 className="text-white font-bold text-xl">Contact.</h3>
         {showToast && <ToastMessage isSent={isSent} />}
         <form
           ref={formRef}
           onSubmit={handleSubmit}
-          className="mt-12 flex flex-col gap-8"
+          className="mt-7 flex flex-col gap-8"
         >
           <label className="flex flex-col">
             <span className="text-white font-medium mb-4">Your Name</span>
@@ -120,7 +121,7 @@ const Contact = () => {
               value={form.name}
               onChange={handleChange}
               placeholder="What's your name?"
-              className="bg-tertiary py-4 px-6 placeholder:text-secondary rounded-lg outline-none border-none font-medium"
+              className="bg-tertiary py-2.5 px-6 placeholder:text-secondary rounded-lg outline-none border-none font-medium"
             />
           </label>
           <label className="flex flex-col">
@@ -131,28 +132,35 @@ const Contact = () => {
               value={form.email}
               onChange={handleChange}
               placeholder="What's your email address?"
-              className="bg-tertiary py-4 px-6 placeholder:text-secondary rounded-lg outline-none border-none font-medium"
+              className="bg-tertiary py-2 px-6 placeholder:text-secondary rounded-lg outline-none border-none font-medium"
             />
           </label>
           <label className="flex flex-col">
             <span className="text-white font-medium mb-4">Your Message</span>
             <textarea
-              rows={7}
+              rows={4}
               name="message"
               value={form.message}
               onChange={handleChange}
               placeholder="How can we help you?"
-              className="bg-tertiary py-4 px-6 placeholder:text-secondary rounded-lg outline-none border-none font-medium"
+              className="bg-tertiary py-2 px-6 placeholder:text-secondary rounded-lg outline-none border-none font-medium"
             />
           </label>
 
           <button
             type="submit"
-            className="bg-tertiary py-3 px-8 rounded-xl border border-white/60 w-fit text-white font-bold shadow-md shadow-primary"
+            className="bg-tertiary py-2 px-6 rounded-xl border border-white/60 w-fit text-white font-bold shadow-md shadow-primary"
           >
             {loading ? "Sending..." : "Send"}
           </button>
         </form>
+      </div>
+      <div className="skew-y-3 shadow-2xl shadow-pink-100">
+        <img
+          src={illustration}
+          alt="Travel illustrations by Storyset"
+          className="w-[480px]"
+        />
       </div>
     </div>
   );

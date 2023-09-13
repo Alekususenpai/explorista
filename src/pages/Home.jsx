@@ -25,7 +25,7 @@ const Home = () => {
         </p>
         <div className="my-10 flex items-center gap-10 justify-center font-semibold">
           <Link
-            className="rounded-full py-2 px-5 text-white bg-primary"
+            className="rounded-md px-3.5 py-2.5 text-white bg-primary"
             to="/explore"
           >
             Get Started

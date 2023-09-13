@@ -25,7 +25,7 @@ export default function Navbar() {
   let isUserLogged = false;
 
   return (
-    <nav className="flex items-center justify-between">
+    <nav className="flex items-center justify-between font-extrabold">
         <Link to="/">
           <img
             src="icons/logo1.png"
