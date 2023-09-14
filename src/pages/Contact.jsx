@@ -103,10 +103,12 @@ const Contact = () => {
   };
 
   return (
-    <div className={`my-16 flex md:flex-row flex-col-reverse items-center justify-center gap-[100px]`}>
+    <div
+      className={`py-32 flex md:flex-row flex-col-reverse items-center justify-center gap-[100px]`}
+    >
       <div className="w-full md:w-[400px] p-8 rounded-2xl bg-primary">
-        <p className="text-white font-bold text-2xl">Get in touch.</p>
-        <h3 className="text-white font-bold text-xl">Contact.</h3>
+        {/* <p className="text-white font-bold text-2xl">Get in touch.</p>
+        <h3 className="text-white font-bold text-xl">Contact.</h3> */}
         {showToast && <ToastMessage isSent={isSent} />}
         <form
           ref={formRef}
@@ -155,11 +157,15 @@ const Contact = () => {
           </button>
         </form>
       </div>
-      <div className="skew-y-3 shadow-2xl shadow-pink-100">
+      <div className="shadow-2xl shadow-pink-100">
+        <p className="text-4xl my-7 font-bold text-gray-900 text-center">
+        Get in touch. Contact us.
+
+        </p>
         <img
           src={illustration}
           alt="Travel illustrations by Storyset"
-          className="w-[480px]"
+          className="mx-auto w-[480px]"
         />
       </div>
     </div>
