@@ -19,3 +19,7 @@ body {
   @apply bg-[radial-gradient(ellipse_at_left,_var(--tw-gradient-stops))]
   from-pink-100 via-white to-indigo-100;
 }
+
+.heading {
+  @apply text-4xl my-7 font-bold text-gray-900;
+}
