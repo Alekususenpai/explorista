@@ -61,10 +61,10 @@ const Explore = () => {
       <div className="w-full mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="w-full mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
           <div className="flex justify-between items-center">
-            <h2 className="text-4xl my-7 font-bold text-gray-900">Categories</h2>
-            <div className="w-fit h-fit rounded-full border border-primary border-dotted shadow-md shadow-primary">
+            <h2 className="heading">Categories</h2>
+            <div className="logo-circle">
               <img
-                className="w-6 h-6 m-2 rotate-45"
+                className="logo-emblem"
                 src="icons/logo1.png"
                 alt="Explorista logo"
               />
@@ -80,13 +80,13 @@ const Explore = () => {
                     className="h-full w-full object-cover object-center"
                   />
                 </div>
-                <h3 className="mt-6 text-sm text-gray-500">
+                <h3 className="passage">
                   <a href={callout.href}>
                     <span className="absolute inset-0" />
                     {callout.name}
                   </a>
                 </h3>
-                <p className="text-base font-semibold text-gray-900">
+                <p className="passage-bold">
                   {callout.description}
                 </p>
               </div>

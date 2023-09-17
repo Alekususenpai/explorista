@@ -5,13 +5,13 @@ const Profile = () => {
   return (
     <div className="my-24 mx-auto w-full md:w-[800px]">
       <form>
-        <h1 className="text-2xl my-7 font-bold text-gray-900">Create your profile</h1>
+        <h1 className="heading">Create your profile</h1>
         <div className="space-y-12">
           <div className="border-b border-gray-900/10 pb-12">
-            <h2 className="text-lg font-semibold leading-7 text-gray-900">
+            <h2 className="passage-bold">
               Profile
             </h2>
-            <p className="mt-1 text-sm leading-6 text-gray-600">
+            <p className="passage text-gray-600">
               This information will be displayed publicly so be careful what you
               share.
             </p>
@@ -20,7 +20,7 @@ const Profile = () => {
               <div className="sm:col-span-4">
                 <label
                   htmlFor="username"
-                  className="block text-sm font-medium leading-6 text-gray-900"
+                  className="passage-bold"
                 >
                   Username
                 </label>
@@ -44,7 +44,7 @@ const Profile = () => {
               <div className="col-span-full">
                 <label
                   htmlFor="about"
-                  className="block text-sm font-medium leading-6 text-gray-900"
+                  className="passage-bold"
                 >
                   About
                 </label>
@@ -57,7 +57,7 @@ const Profile = () => {
                     defaultValue={""}
                   />
                 </div>
-                <p className="mt-3 text-sm leading-6 text-gray-600">
+                <p className="passage text-gray-600">
                   Write a few sentences about yourself.
                 </p>
               </div>
@@ -65,7 +65,7 @@ const Profile = () => {
               <div className="col-span-full">
                 <label
                   htmlFor="photo"
-                  className="block text-sm font-medium leading-6 text-gray-900"
+                  className="passage-bold"
                 >
                   Photo
                 </label>
@@ -76,7 +76,7 @@ const Profile = () => {
                   />
                   <button
                     type="button"
-                    className="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                    className="btn-secondary border border-primary rounded-md"
                   >
                     Change
                   </button>
@@ -86,7 +86,7 @@ const Profile = () => {
               <div className="col-span-full">
                 <label
                   htmlFor="cover-photo"
-                  className="block text-sm font-medium leading-6 text-gray-900"
+                  className="passage-bold"
                 >
                   Cover photo
                 </label>
@@ -121,10 +121,10 @@ const Profile = () => {
           </div>
 
           <div className="border-b border-gray-900/10 pb-12">
-            <h2 className="text-lg font-semibold leading-7 text-gray-900">
+            <h2 className="passage-bold">
               Personal Information
             </h2>
-            <p className="mt-1 text-sm leading-6 text-gray-600">
+            <p className="passage">
               Use a permanent address where you can receive mail.
             </p>
 
@@ -132,7 +132,7 @@ const Profile = () => {
               <div className="sm:col-span-3">
                 <label
                   htmlFor="first-name"
-                  className="block text-sm font-medium leading-6 text-gray-900"
+                  className="passage-bold"
                 >
                   First name
                 </label>
@@ -150,7 +150,7 @@ const Profile = () => {
               <div className="sm:col-span-3">
                 <label
                   htmlFor="last-name"
-                  className="block text-sm font-medium leading-6 text-gray-900"
+                  className="passage-bold"
                 >
                   Last name
                 </label>
@@ -168,7 +168,7 @@ const Profile = () => {
               <div className="sm:col-span-4">
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium leading-6 text-gray-900"
+                  className="passage-bold"
                 >
                   Email address
                 </label>
@@ -185,7 +185,7 @@ const Profile = () => {
               <div className="sm:col-span-4">
                 <label
                   htmlFor="number"
-                  className="block text-sm font-medium leading-6 text-gray-900"
+                  className="passage-bold"
                 >
                   Number
                 </label>
@@ -203,7 +203,7 @@ const Profile = () => {
               <div className="sm:col-span-3">
                 <label
                   htmlFor="country"
-                  className="block text-sm font-medium leading-6 text-gray-900"
+                  className="passage-bold"
                 >
                   Country
                 </label>
@@ -224,7 +224,7 @@ const Profile = () => {
               <div className="col-span-full">
                 <label
                   htmlFor="street-address"
-                  className="block text-sm font-medium leading-6 text-gray-900"
+                  className="passage-bold"
                 >
                   Street address
                 </label>
@@ -242,7 +242,7 @@ const Profile = () => {
               <div className="sm:col-span-2 sm:col-start-1">
                 <label
                   htmlFor="city"
-                  className="block text-sm font-medium leading-6 text-gray-900"
+                  className="passage-bold"
                 >
                   City
                 </label>
@@ -260,7 +260,7 @@ const Profile = () => {
               <div className="sm:col-span-2">
                 <label
                   htmlFor="region"
-                  className="block text-sm font-medium leading-6 text-gray-900"
+                  className="passage-bold"
                 >
                   State / Province
                 </label>
@@ -278,7 +278,7 @@ const Profile = () => {
               <div className="sm:col-span-2">
                 <label
                   htmlFor="postal-code"
-                  className="block text-sm font-medium leading-6 text-gray-900"
+                  className="passage-bold"
                 >
                   ZIP / Postal code
                 </label>
@@ -299,13 +299,13 @@ const Profile = () => {
         <div className="mt-6 flex items-center justify-end gap-x-6">
           <button
             type="button"
-            className="text-sm font-semibold leading-6 text-gray-900"
+            className="btn-secondary"
           >
             Cancel
           </button>
           <button
             type="submit"
-            className="rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            className="btn-primary"
           >
             Save
           </button>

@@ -107,8 +107,6 @@ const Contact = () => {
       className={`py-32 flex md:flex-row flex-col-reverse items-center justify-center gap-[100px]`}
     >
       <div className="w-full md:w-[400px] p-8 rounded-2xl bg-primary">
-        {/* <p className="text-white font-bold text-2xl">Get in touch.</p>
-        <h3 className="text-white font-bold text-xl">Contact.</h3> */}
         {showToast && <ToastMessage isSent={isSent} />}
         <form
           ref={formRef}
@@ -116,51 +114,50 @@ const Contact = () => {
           className="mt-7 flex flex-col gap-8"
         >
           <label className="flex flex-col">
-            <span className="text-white font-medium mb-4">Your Name</span>
+            <span className="passage passage-white">Your Name</span>
             <input
               type="text"
               name="name"
               value={form.name}
               onChange={handleChange}
               placeholder="What's your name?"
-              className="bg-tertiary py-2.5 px-6 placeholder:text-secondary rounded-lg outline-none border-none font-medium"
+              className="placeholder"
             />
           </label>
           <label className="flex flex-col">
-            <span className="text-white font-medium mb-4">Your email</span>
+            <span className="passage passage-white">Your email</span>
             <input
               type="email"
               name="email"
               value={form.email}
               onChange={handleChange}
               placeholder="What's your email address?"
-              className="bg-tertiary py-2 px-6 placeholder:text-secondary rounded-lg outline-none border-none font-medium"
+              className="placeholder"
             />
           </label>
           <label className="flex flex-col">
-            <span className="text-white font-medium mb-4">Your Message</span>
+            <span className="passage passage-white">Your Message</span>
             <textarea
               rows={4}
               name="message"
               value={form.message}
               onChange={handleChange}
               placeholder="How can we help you?"
-              className="bg-tertiary py-2 px-6 placeholder:text-secondary rounded-lg outline-none border-none font-medium"
+              className="placeholder"
             />
           </label>
 
           <button
             type="submit"
-            className="bg-tertiary py-2 px-6 rounded-xl border border-white/60 w-fit text-white font-bold shadow-md shadow-primary"
+            className="btn-primary border border-white/60"
           >
             {loading ? "Sending..." : "Send"}
           </button>
         </form>
       </div>
       <div className="shadow-2xl shadow-pink-100">
-        <p className="text-4xl my-7 font-bold text-gray-900 text-center">
-        Get in touch. Contact us.
-
+        <p className="heading text-center">
+          Get in touch. Contact us.
         </p>
         <img
           src={illustration}

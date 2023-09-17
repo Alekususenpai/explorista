@@ -29,7 +29,7 @@ export default function Navbar() {
         <Link to="/">
           <img
             src="icons/logo1.png"
-            className="md:h-12 md:w-12 h-9 w-9"
+            className="logo-nav"
             alt="Explorista logo"
           />
         </Link>

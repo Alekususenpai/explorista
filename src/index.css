@@ -20,6 +20,54 @@ body {
   from-pink-100 via-white to-indigo-100;
 }
 
+.heading-hero {
+  @apply text-5xl my-7 font-black text-gray-900;
+}
+
 .heading {
-  @apply text-4xl my-7 font-bold text-gray-900;
+  @apply text-4xl my-7 font-black text-gray-900;
+}
+
+.subheading {
+  @apply text-xl my-3 font-light;
+}
+
+.passage-bold {
+  @apply py-2 text-base font-semibold text-gray-900;
+}
+
+.passage {
+  @apply py-2 text-justify font-light text-gray-900;
+}
+
+.passage-white {
+  @apply text-white font-normal;
+}
+
+.btn-primary {
+  @apply rounded-md px-4 py-2 text-white bg-primary;
+}
+
+.btn-secondary {
+  @apply px-4 py-2;
+}
+
+.placeholder{
+  @apply py-2.5 px-6 rounded-lg outline-none border-none font-light;
+}
+
+.svg-style {
+  @apply w-5 h-5 mx-1.5 inline;
+}
+
+.logo-nav {
+  @apply md:h-11 md:w-12 h-8 w-9;
+}
+
+.logo-circle {
+  @apply w-fit h-fit my-2 rounded-full border border-primary border-dotted shadow-md shadow-primary;
+}
+
+.logo-emblem {
+  @apply w-6 h-6 m-2 rotate-45;
 }

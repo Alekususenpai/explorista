@@ -7,14 +7,14 @@ const Home = () => {
     <main className="flex flex-col-reverse md:flex-row md:h-[100vh] md:my-5 items-center justify-around">
       <section className="md:w-[45%] text-center my-10">
         <div className="mb-10">
-          <h1 className="md:text-[43px] text-3xl font-black">
+          <h1 className="heading-hero">
             Welcome to Explorista
           </h1>
-          <h2 className="md:text-2xl text-xl my-3 font-light">
+          <h2 className="subheading">
             Your gateway to a world of captivating online experiences
           </h2>
         </div>
-        <p className="px-5 text-md text-justify font-light">
+        <p className="passage">
           Embark on a journey of discovery without leaving your home, as you
           join unique and interactive activities guided by one-of-a-kind hosts.
           From hands-on workshops to immersive cultural explorations, Explorista
@@ -23,14 +23,16 @@ const Home = () => {
           globally. With Explorista, adventure knows no bounds, and it's all
           just a click away.
         </p>
-        <div className="my-10 flex items-center gap-10 justify-center font-semibold">
+        <div className="my-10 flex items-center gap-10 justify-center">
           <Link
-            className="rounded-md px-3.5 py-2.5 text-white bg-primary"
+            className="btn-primary"
             to="/explore"
           >
             Get Started
           </Link>
-          <Link to="/about">
+          <Link 
+          className="btn-secondary"
+          to="/about">
             Learn more
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +40,7 @@ const Home = () => {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-5 h-5 inline"
+              className="svg-style"
             >
               <path
                 strokeLinecap="round"

@@ -32,19 +32,19 @@ const About = () => {
     <div className="bg-slate-100/25 rounded-2xl my-10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl py-14 sm:py-22 lg:py-30">
-          <p className="text-4xl my-7 font-bold text-gray-900  text-center">
+          <p className="heading">
             At Explorista, we are changing the way people connect.
           </p>
-          <p>
+          <p className="subheading">
             Our mission is to be your gateway to a world of captivating online
             experiences, allowing you to embark on a journey of discovery
             without leaving your home. In a rapidly evolving digital landscape,
             we understand the importance of staying connected, inspired, and
             engaged with the world around us.
           </p>
-          <div className="w-fit mx-auto my-8 rounded-full border border-primary border-dotted shadow-md shadow-primary">
+          <div className="logo-circle mx-auto">
             <img
-              className="w-10 h-10 m-2 rotate-45"
+              className="logo-emblem"
               src="icons/logo1.png"
               alt="Explorista logo"
             />
@@ -58,10 +58,10 @@ const About = () => {
         <div className="flex justify-evenly p-6 md:p-16 gap-16 flex-wrap">
           {lorem.map((el, index) => (
             <div className="w-full lg:w-[350px]" key={index}>
-              <h3 className="text-xl font-semibold text-gray-900">
+              <h3 className="passage-bold">
                 {el.title}
               </h3>
-              <p className="py-4 text-justify">{el.text}</p>
+              <p className="passage">{el.text}</p>
             </div>
           ))}
         </div>
