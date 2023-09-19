@@ -25,7 +25,7 @@ body {
 }
 
 .heading {
-  @apply text-4xl my-7 font-black text-gray-900;
+  @apply text-4xl my-6 font-black text-gray-900;
 }
 
 .subheading {
