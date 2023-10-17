@@ -1,8 +1,15 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, ChangeEvent, FormEvent } from "react";
 import { illustration } from "../assets/index";
-import emailjs from "@emailjs/browser";
+import emailjs, { EmailJSResponseStatus } from "@emailjs/browser";
 
-const ToastMessage = ({ isSent }) => {
+
+type FormState = {
+  name: string;
+  email: string;
+  message: string;
+};
+
+const ToastMessage: React.FC<{ isSent: boolean }> = ({ isSent }) => {
   let message;
   if (isSent) {
     message = "Thank you for your message.";
@@ -15,7 +22,7 @@ const ToastMessage = ({ isSent }) => {
       role="alert"
     >
       <svg
-        class="w-10 h-5 text-blue-600 dark:text-blue-500 rotate-45"
+        className="w-10 h-5 text-blue-600 dark:text-blue-500 rotate-45"
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -29,7 +36,7 @@ const ToastMessage = ({ isSent }) => {
           d="m9 17 8 2L9 1 1 19l8-2Zm0 0V9"
         />
       </svg>
-      <span class="text-md mx-1 text-center md:text-left font-bold">
+      <span className="text-md mx-1 text-center md:text-left font-bold">
         {message}
       </span>
     </div>
@@ -37,8 +44,8 @@ const ToastMessage = ({ isSent }) => {
 };
 
 const Contact = () => {
-  const formRef = useRef();
-  const [form, setForm] = useState({
+  const formRef = useRef<HTMLFormElement | null>(null);
+  const [form, setForm] = useState<FormState>({
     name: "",
     email: "",
     message: "",
@@ -56,9 +63,9 @@ const Contact = () => {
     return () => clearTimeout(timer);
   }, [showToast]);
 
-  const handleChange = (e) => {
-    const { target } = e;
-    const { name, value } = target;
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
 
     setForm({
       ...form,
@@ -66,7 +73,7 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
@@ -84,7 +91,7 @@ const Contact = () => {
         import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
       )
       .then(
-        () => {
+        (response: EmailJSResponseStatus) => {
           setLoading(false);
           setShowToast(true);
           setIsSent(true);

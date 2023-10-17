@@ -1,6 +1,11 @@
 import React from "react";
+import { dataTypes } from "../../types/dataTypes";
 
-export default function Card({ data }) {
+type CardProps = {
+  data: dataTypes;
+};
+
+export default function Card({ data }: CardProps) {
   let badgeText;
   if (data.openSpots === 0) {
     badgeText = "SOLD OUT";

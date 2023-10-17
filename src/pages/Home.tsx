@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import data from "../data";
+import { dataTypes } from "../types/dataTypes";
 
 const Home = () => {
   return (
@@ -30,9 +31,9 @@ const Home = () => {
           >
             Get Started
           </Link>
-          <Link 
-          className="btn-secondary"
-          to="/about">
+          <Link
+            className="btn-secondary"
+            to="/about">
             Learn more
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +54,7 @@ const Home = () => {
       </section>
       <section className="md:w-[45%] my-10 order-1">
         <div className="grid grid-cols-4 grid-rows-5 gap-1.5">
-          {data.map((img) => (
+          {data.map((img: dataTypes) => (
             <img
               key={img.id}
               src={`images/${img.coverImg}`}
