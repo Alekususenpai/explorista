@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { close, menu } from "../../assets/";
+import { close, menu } from "../../assets";
 
 export default function Navbar() {
-  const [active, setActive] = useState("");
+  //const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
