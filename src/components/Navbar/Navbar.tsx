@@ -54,7 +54,7 @@ export default function Navbar() {
         {isUserLogged ? (
           <Link to="/myprofile">My Profile</Link>
         ) : (
-          <Link to="/login">Log In</Link>
+          <Link to="/login">Register</Link>
         )}
       </div>
 
