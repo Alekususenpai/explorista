@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import data from "../data";
+import {events} from "../data";
 import { dataTypes } from "../types/dataTypes";
 
 const Home = () => {
@@ -54,7 +54,7 @@ const Home = () => {
       </section>
       <section className="md:w-[45%] my-10 order-1">
         <div className="grid grid-cols-4 grid-rows-5 gap-1.5">
-          {data.map((img: dataTypes) => (
+          {events.map((img: dataTypes) => (
             <img
               key={img.id}
               src={`images/${img.coverImg}`}

@@ -1,5 +1,5 @@
 import React from "react";
-import { aboutUsImg } from "../assets/index";
+import { aboutUsImg } from "../assets";
 
 const lorem = [
   {

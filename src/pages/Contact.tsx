@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect, ChangeEvent, FormEvent } from "react";
-import { illustration } from "../assets/index";
+import { illustration } from "../assets";
 import emailjs, { EmailJSResponseStatus } from "@emailjs/browser";
 
 

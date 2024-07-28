@@ -1,4 +1,7 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { RootState } from "../app/store";
 
 const benefits = [
   {
@@ -28,6 +31,18 @@ const benefits = [
 ];
 
 const PartnerWithUs = () => {
+
+  const navigate = useNavigate()
+  const user = useSelector((state: RootState) => state.auth.currentUser);
+
+  const handleEventNavigation = () => {
+    if (user) {
+      navigate('/createEvent');
+    } else {
+      navigate('/login');
+    }
+  };
+
   return (
     <section className="relative isolate overflow-hidden bg-white/25 px-6 py-24 sm:py-32 lg:px-8 rounded-2xl my-10">
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.indigo.100),white)] opacity-20" />
@@ -75,6 +90,9 @@ const PartnerWithUs = () => {
           and your participants. Explore the world, one virtual experience at a
           time, with Explorista.
         </p>
+        <div className="flex justify-center my-20">
+          <button className="btn-primary text-center w-[250px]" onClick={handleEventNavigation}>Host an event</button>
+        </div>
 
         <figcaption className="mt-10">
           <img

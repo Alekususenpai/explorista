@@ -8,7 +8,6 @@ export type dataTypes = {
                     rating: number;
                     reviewCount: number;
           };
-          location: string;
           openSpots: number;
           styling: string;
 }

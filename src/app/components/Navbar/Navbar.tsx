@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { close, menu } from "../../assets";
+import { close, menu } from "../../../assets";
+import { AuthUI, SignOut } from "../../../firebase/Authentication";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
 
 export default function Navbar() {
-  //const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  const user = useSelector((state: RootState) => state.auth.currentUser);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -22,25 +26,22 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  let isUserLogged = false;
-
   return (
     <nav className="flex items-center justify-between font-extrabold">
-        <Link to="/">
-          <img
-            src="icons/logo1.png"
-            className="logo-nav"
-            alt="Explorista logo"
-          />
-        </Link>
-    
+      <Link to="/">
+        <img
+          src="icons/logo1.png"
+          className="logo-nav"
+          alt="Explorista logo"
+        />
+      </Link>
 
       <ul className="md:flex gap-8 hidden">
         <li>
           <Link to="/explore">Explore</Link>
         </li>
         <li>
-          <Link to="/partners">Become a Host</Link>
+          <Link to="/partners">Host an event</Link>
         </li>
         <li>
           <Link to="/about">About Us</Link>
@@ -50,12 +51,16 @@ export default function Navbar() {
         </li>
       </ul>
 
-      <div className="hidden md:block">
-        {isUserLogged ? (
-          <Link to="/myprofile">My Profile</Link>
-        ) : (
-          <Link to="/login">Register</Link>
-        )}
+      <div className="flex gap-4">
+        <div className="hidden md:block">
+          <AuthUI />
+        </div>
+        {user && (
+          <div className="hidden md:block">
+            <SignOut />
+          </div>
+        )
+        }
       </div>
 
       <img
@@ -67,25 +72,27 @@ export default function Navbar() {
 
       <div className={`${!toggle ? "hidden" : "absolute top-14 left-0 z-10 w-full bg-hero-opacity"}`}>
         <ul className="flex flex-col items-center font-light gap-2 my-4">
-          <li>
-            {isUserLogged ? (
-              <Link to="/myprofile">My Profile</Link>
-            ) : (
-              <Link to="/login">Log In</Link>
-            )}
+          <li onClick={() => setToggle(false)}>
+            <AuthUI />
           </li>
           <li>
-            <Link to="/explore">Explore</Link>
+            <Link to="/explore" onClick={() => setToggle(false)}>Explore</Link>
           </li>
           <li>
-            <Link to="/partners">Become a Host</Link>
+            <Link to="/partners" onClick={() => setToggle(false)}>Host an event</Link>
           </li>
           <li>
-            <Link to="/about">About Us</Link>
+            <Link to="/about" onClick={() => setToggle(false)}>About Us</Link>
           </li>
           <li>
-            <Link to="/contact">Contact</Link>
+            <Link to="/contact" onClick={() => setToggle(false)}>Contact</Link>
           </li>
+          {user && (
+            <li onClick={() => setToggle(false)}>
+              <SignOut />
+            </li>
+          )
+          }
         </ul>
       </div>
     </nav>

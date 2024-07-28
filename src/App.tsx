@@ -1,4 +1,6 @@
-import Navbar from "./components/Navbar/Navbar";
+import React from "react";
+
+import Navbar from "./app/components/Navbar/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {
   Home,
@@ -6,7 +8,12 @@ import {
   Contact,
   Explore,
   PartnerWithUs,
+  Login,
   Profile,
+  EditProfile,
+  CreateEvent,
+  EventDetails,
+  EditEvent,
   Error
 } from "./pages/index";
 
@@ -20,8 +27,13 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/explore" element={<Explore />} />
+          <Route path="/explore/:eventId" element={<EventDetails />} />
+          <Route path="/explore/:eventId/edit" element={<EditEvent />} />
           <Route path="/partners" element={<PartnerWithUs />} />
-          <Route path="/login" element={<Profile />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/profile/:userId" element={<Profile />} />
+          <Route path="/edit-profile/:userId" element={<EditProfile />} />
+          <Route path="/createevent" element={<CreateEvent />} />
           <Route path="/error" element={<Error />} />
         </Routes>
       </Router>
