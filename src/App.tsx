@@ -32,7 +32,7 @@ export default function App() {
           <Route path="/partners" element={<PartnerWithUs />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile/:userId" element={<Profile />} />
-          <Route path="/edit-profile/:userId" element={<EditProfile />} />
+          <Route path="/profile/:userId/edit" element={<EditProfile />} />
           <Route path="/createevent" element={<CreateEvent />} />
           <Route path="/error" element={<Error />} />
         </Routes>

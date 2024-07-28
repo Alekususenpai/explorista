@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {events} from "../data";
+import { events } from "../data";
 import { dataTypes } from "../types/dataTypes";
 
 const Home = () => {

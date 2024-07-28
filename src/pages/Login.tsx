@@ -4,8 +4,10 @@ import { auth } from '../firebase/firebase-config';
 import * as firebaseui from 'firebaseui';
 import 'firebaseui/dist/firebaseui.css';
 import { EmailAuthProvider, GoogleAuthProvider } from "firebase/auth";
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    const navigate = useNavigate()
     useEffect(() => {
         const uiConfig = {
             signInOptions: [
@@ -18,9 +20,11 @@ const Login = () => {
                         "853512018584-lef5pad6v5puihn08a54is1g6kh3c77a.apps.googleusercontent.com",
                 },
             ],
-            signInSuccessUrl: '/profile',
             callbacks: {
-                signInSuccessWithAuthResult: () => true,
+                signInSuccessWithAuthResult: () => {
+                    navigate(-1);
+                    return false
+                },
             },
         };
 

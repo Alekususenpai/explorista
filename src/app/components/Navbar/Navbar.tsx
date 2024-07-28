@@ -9,7 +9,7 @@ export default function Navbar() {
   const [toggle, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  const user = useSelector((state: RootState) => state.auth.currentUser);
+  const user = useSelector((state: RootState) => state.auth.currentUserId);
 
   useEffect(() => {
     const handleScroll = () => {

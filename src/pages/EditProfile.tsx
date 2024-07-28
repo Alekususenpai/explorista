@@ -9,9 +9,7 @@ import { User as UserType } from '../types/user';
 
 const EditProfile: React.FC = () => {
     const { userId } = useParams<{ userId: string }>();
-    const currentUser = useSelector((state: RootState) =>
-        state.user.value.find(user => user.id === Number(userId))
-    );
+    const currentUser = useSelector((state: RootState) => state.user.byId[userId || '']);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -21,24 +19,24 @@ const EditProfile: React.FC = () => {
 
     const formik = useFormik({
         initialValues: {
-            name: currentUser.name,
+            displayName: currentUser.displayName,
             email: currentUser.email,
-            profileImage: currentUser.profileImage,
-            bio: currentUser.bio,
+            photoURL: currentUser.photoURL || '',
+            bio: currentUser.bio || 'No bio yet',
         },
         validationSchema: Yup.object({
-            name: Yup.string().required('Required'),
+            displayName: Yup.string().required('Required'),
             email: Yup.string().email('Invalid email address').required('Required'),
-            profileImage: Yup.string(),
+            photoURL: Yup.string(),
             bio: Yup.string().required('Required'),
         }),
         onSubmit: (values) => {
-            const updatedUser = {
+            const updatedUser: UserType = {
                 ...currentUser,
                 ...values,
             };
             dispatch(updateUser(updatedUser));
-            navigate(`/profile/${updatedUser.id}`);
+            navigate(`/profile/${updatedUser.uid}`);
         },
     });
 
@@ -47,16 +45,16 @@ const EditProfile: React.FC = () => {
             <h1 className="text-3xl font-bold mb-10">Edit Profile</h1>
             <form onSubmit={formik.handleSubmit}>
                 <div className="mb-4">
-                    <label htmlFor="name" className="block text-gray-900 font-bold">Name</label>
+                    <label htmlFor="displayName" className="block text-gray-900 font-bold">Name</label>
                     <input
-                        id="name"
-                        name="name"
+                        id="displayName"
+                        name="displayName"
                         type="text"
                         className="mt-4 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50"
                         onChange={formik.handleChange}
-                        value={formik.values.name}
+                        value={formik.values.displayName}
                     />
-                    {formik.errors.name ? <div className="text-red-500">{formik.errors.name}</div> : null}
+                    {formik.errors.displayName ? <div className="text-red-500">{formik.errors.displayName}</div> : null}
                 </div>
                 <div className="mb-4">
                     <label htmlFor="email" className="block text-gray-900 font-bold">Email</label>
@@ -71,16 +69,16 @@ const EditProfile: React.FC = () => {
                     {formik.errors.email ? <div className="text-red-500">{formik.errors.email}</div> : null}
                 </div>
                 <div className="mb-4">
-                    <label htmlFor="profileImage" className="block text-gray-900 font-bold">Profile Image URL</label>
+                    <label htmlFor="photoURL" className="block text-gray-900 font-bold">Profile Image URL</label>
                     <input
-                        id="profileImage"
-                        name="profileImage"
+                        id="photoURL"
+                        name="photoURL"
                         type="text"
                         className="mt-4 p-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50"
                         onChange={formik.handleChange}
-                        value={formik.values.profileImage}
+                        value={formik.values.photoURL}
                     />
-                    {formik.errors.profileImage ? <div className="text-red-500">{formik.errors.profileImage}</div> : null}
+                    {formik.errors.photoURL ? <div className="text-red-500">{formik.errors.photoURL}</div> : null}
                 </div>
                 <div className="mb-4">
                     <label htmlFor="bio" className="block text-gray-900 font-bold">Bio</label>

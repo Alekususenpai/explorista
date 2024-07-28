@@ -1,7 +1,6 @@
-// src/components/CardList.tsx
 import React from "react";
 import Card from "./Card";
-import { Event } from "../types/event";
+import { Event } from "../../../types/event";
 
 type CardListProps = {
   data: Event[];

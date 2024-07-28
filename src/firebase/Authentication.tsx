@@ -1,64 +1,72 @@
-import { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { onAuthStateChanged } from "firebase/auth";
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { auth } from './firebase-config';
-import { login, logout } from '../features/auth/authSlice';
-import { RootState } from "../app/store";
+import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { onAuthStateChanged } from 'firebase/auth';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { auth } from '../firebase/firebase-config';
+import { login, logout, setLoading } from '../features/auth/authSlice';
+import { addUser } from '../features/users/userSlice';
+import { RootState } from '../app/store';
+import { User } from '../types/user';
 
 export const AuthUI = () => {
-    const dispatch = useDispatch();
-    const user = useSelector((state: RootState) => state.auth.currentUser);
+  const dispatch = useDispatch();
+  const currentUserId = useSelector((state: RootState) => state.auth.currentUserId);
+  const currentUser = useSelector((state: RootState) => state.user.byId[currentUserId || '']);
+  
+  const state = useSelector((state: RootState) => state);
+  console.log(state)
 
-    useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
-            console.log(user)
-            if (user) {
-                const { uid, email, displayName, photoURL } = user;
-                dispatch(login({
-                    uid,
-                    email: email || "",
-                    displayName: displayName || "",
-                    photoURL: photoURL || ""
-                }));
-            } else {
-                dispatch(logout());
-            }
-        });
-
-        return () => {
-            unsubscribe();
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      dispatch(setLoading(true));
+      if (user) {
+        const { uid, email, displayName, photoURL } = user;
+        const userData: User = {
+          uid,
+          email: email || "",
+          displayName: displayName || "",
+          photoURL: photoURL || "",
+          bio: "No bio yet",
+          isHost: false,
+          eventsHosted: [],
+          eventsAttending: [],
         };
-    }, [dispatch]);
+        dispatch(addUser(userData));
+        dispatch(login(uid));
+      } else {
+        dispatch(logout());
+      }
+      dispatch(setLoading(false));
+    });
 
-    return (
-        <div>
-            {user ? (
-                <Link to={`/profile/${user.uid}`}>My Profile</Link>
-            ) : (
-                <Link to="/login">Log In</Link>
-            )}
-        </div>
-    );
-}
+    return () => {
+      unsubscribe();
+    };
+  }, [dispatch]);
+
+  return (
+    <div>
+      {currentUser ? (
+        <Link to={`/profile/${currentUser.uid}`}>My Profile</Link>
+      ) : (
+        <Link to="/login">Log In</Link>
+      )}
+    </div>
+  );
+};
 
 export const SignOut = () => {
-    const navigate = useNavigate();
-    const user = useSelector((state: RootState) => state.auth.currentUser);
-    const handleClick = () => auth.signOut();
+  const user = useSelector((state: RootState) => state.auth.currentUserId);
+  const handleClick = () => auth.signOut();
 
-    // useEffect(() => {
-    //     navigate('/')
-    // }, [])
-
-    return (
-        <div>
-            {user && (
-                <button onClick={handleClick} className="text-red-900 text-decoration underline">
-                    Sign Out
-                </button>
-            )}
-        </div>
-    );
-}
+  return (
+    <div>
+      {user && (
+        <button onClick={handleClick} className="text-red-900 text-decoration underline">
+          Sign Out
+        </button>
+      )}
+    </div>
+  );
+};
