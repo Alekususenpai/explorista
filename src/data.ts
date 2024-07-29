@@ -10,7 +10,8 @@ export const events = [
             reviewCount: 6
         },
         openSpots: 0,
-        styling: 'row-start-3'
+        styling: 'row-start-3',
+        host: "05hi2mb7shdmAcUWEooKl4V1FW02",
     },
     {
         id: 2,
@@ -23,7 +24,8 @@ export const events = [
             reviewCount: 0
         },
         openSpots: 27,
-        styling: 'row-start-2'
+        styling: 'row-start-2',
+        host: "05hi2mb7shdmAcUWEooKl4V1FW02",
     },
     {
         id: 3,
@@ -37,6 +39,7 @@ export const events = [
         },
         openSpots: 3,
         styling: 'row-start-4',
+        host: "05hi2mb7shdmAcUWEooKl4V1FW02",
     },
     {
         id: 4,
@@ -49,7 +52,8 @@ export const events = [
             reviewCount: 2
         },
         openSpots: 3,
-        styling: 'col-start-3'
+        styling: 'col-start-3',
+        host: "05hi2mb7shdmAcUWEooKl4V1FW02",
     },
     {
         id: 5,
@@ -62,7 +66,8 @@ export const events = [
             reviewCount: 2
         },
         openSpots: 3,
-        styling: 'col-start-3 '
+        styling: 'col-start-3 ',
+        host: "05hi2mb7shdmAcUWEooKl4V1FW02",
     },
     {
         id: 6,
@@ -76,6 +81,7 @@ export const events = [
         },
         openSpots: 3,
         styling: 'col-start-4 row-start-2',
+        host: "05hi2mb7shdmAcUWEooKl4V1FW02",
     },
 ]
 

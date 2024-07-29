@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,9 +13,6 @@ export const AuthUI = () => {
   const dispatch = useDispatch();
   const currentUserId = useSelector((state: RootState) => state.auth.currentUserId);
   const currentUser = useSelector((state: RootState) => state.user.byId[currentUserId || '']);
-  
-  const state = useSelector((state: RootState) => state);
-  console.log(state)
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -57,8 +54,12 @@ export const AuthUI = () => {
 };
 
 export const SignOut = () => {
+  const navigate = useNavigate()
   const user = useSelector((state: RootState) => state.auth.currentUserId);
-  const handleClick = () => auth.signOut();
+  const handleClick = () => {
+    auth.signOut();
+    navigate('/')
+  }
 
   return (
     <div>

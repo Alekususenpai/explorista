@@ -1,13 +1,18 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addEvent } from '../features/events/eventSlice';
+import { updateUser } from '../features/users/userSlice';
+import { RootState } from '../app/store';
 
 const CreateEvent: React.FC = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    const userId = useSelector((state: RootState) => state.auth.currentUserId);
+    const currentUser = useSelector((state: RootState) => state.user.byId[userId || ''])
 
     const formik = useFormik({
         initialValues: {
@@ -28,13 +33,22 @@ const CreateEvent: React.FC = () => {
             const newEvent = {
                 ...values,
                 coverImg: values.coverImg || 'https://picsum.photos/400',
-                id: Date.now(), 
+                id: Date.now(),
                 stats: {
                     rating: 0,
                     reviewCount: 0,
                 },
+                host: userId,
             };
             dispatch(addEvent(newEvent));
+
+            if (currentUser) {
+                dispatch(updateUser({
+                    uid: currentUser.uid,
+                    isHost: true,
+                    eventsHosted: [...currentUser.eventsHosted, newEvent.id],
+                }))
+            }
             navigate(`/explore/${newEvent.id}`, { state: { event: newEvent } });
             resetForm();
         },

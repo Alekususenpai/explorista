@@ -33,7 +33,7 @@ const benefits = [
 const PartnerWithUs = () => {
 
   const navigate = useNavigate()
-  const user = useSelector((state: RootState) => state.auth.currentUser);
+  const user = useSelector((state: RootState) => state.auth.currentUserId);
 
   const handleEventNavigation = () => {
     if (user) {

@@ -9,4 +9,5 @@ export interface Event {
         reviewCount: number;
     };
     openSpots: number;
+    host: string,
 }

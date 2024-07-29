@@ -7,8 +7,21 @@ interface UserState {
   isLoading: boolean;
 }
 
+const testInfo = {
+  'tH1Dnm1zZISidaLFqlXOounsllx1': {
+    "uid": "tH1Dnm1zZISidaLFqlXOounsllx1",
+    "email": "sinonsenpai2@gmail.com",
+    "displayName": "Unauthorized person",
+    "photoURL": "",
+    "bio": "No bio yet",
+    "isHost": false,
+    "eventsHosted": [],
+    "eventsAttending": []
+  }
+}
+
 const initialState: UserState = {
-  byId: {},
+  byId: testInfo,
   allIds: [],
   isLoading: false,
 };
@@ -30,10 +43,10 @@ const userSlice = createSlice({
         state.allIds.push(user.uid);
       }
     },
-    updateUser(state, action: PayloadAction<User>) {
-      const user = action.payload;
-      if (state.byId[user.uid]) {
-        state.byId[user.uid] = user;
+    updateUser(state, action: PayloadAction<Partial<User> & { uid: string }>) {
+      const { uid, ...updates } = action.payload;
+      if (state.byId[uid]) {
+        state.byId[uid] = { ...state.byId[uid], ...updates };
       }
     },
     deleteUser(state, action: PayloadAction<string>) {
