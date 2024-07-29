@@ -38,6 +38,9 @@ export default function Navbar() {
 
       <ul className="md:flex gap-8 hidden">
         <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
           <Link to="/explore">Explore</Link>
         </li>
         <li>
@@ -45,9 +48,6 @@ export default function Navbar() {
         </li>
         <li>
           <Link to="/about">About Us</Link>
-        </li>
-        <li>
-          <Link to="/contact">Contact</Link>
         </li>
       </ul>
 
@@ -76,6 +76,9 @@ export default function Navbar() {
             <AuthUI />
           </li>
           <li>
+            <Link to="/" onClick={() => setToggle(false)}>Home</Link>
+          </li>
+          <li>
             <Link to="/explore" onClick={() => setToggle(false)}>Explore</Link>
           </li>
           <li>
@@ -83,9 +86,6 @@ export default function Navbar() {
           </li>
           <li>
             <Link to="/about" onClick={() => setToggle(false)}>About Us</Link>
-          </li>
-          <li>
-            <Link to="/contact" onClick={() => setToggle(false)}>Contact</Link>
           </li>
           {user && (
             <li onClick={() => setToggle(false)}>

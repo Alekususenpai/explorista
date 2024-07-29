@@ -34,7 +34,7 @@ export default function App() {
           <Route path="/profile/:userId" element={<Profile />} />
           <Route path="/profile/:userId/edit" element={<EditProfile />} />
           <Route path="/createevent" element={<CreateEvent />} />
-          <Route path="/error" element={<Error />} />
+          <Route path="*" element={<Error />} />
         </Routes>
       </Router>
     </div>

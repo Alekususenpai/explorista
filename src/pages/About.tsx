@@ -1,5 +1,6 @@
 import React from "react";
 import { aboutUsImg } from "../assets";
+import { Link } from "react-router-dom";
 
 const lorem = [
   {
@@ -64,6 +65,9 @@ const About = () => {
               <p className="passage">{el.text}</p>
             </div>
           ))}
+        </div>
+        <div className="flex justify-center my-5">
+          <Link to="/contact"><button className="btn-primary text-center w-[250px]">Want to know more?</button></Link>
         </div>
       </div>
     </div>
