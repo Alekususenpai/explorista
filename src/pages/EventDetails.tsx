@@ -7,19 +7,28 @@ import { User } from '../types/user'
 
 
 const EventDetails: React.FC = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const { eventId } = useParams<{ eventId: string }>();
+
   const event = useSelector((state: RootState) =>
     state.event.events.find(event => event.id === Number(eventId))
   );
+
+  const currentUserId = useSelector((state: RootState) => state.auth.currentUserId);
+
+  const currentUser = useSelector((state: RootState) => {
+    if (!currentUserId) return;
+    return state.user.byId[currentUserId] || null;
+  })
+
   const host = useSelector((state: RootState) => {
-    if (!event) return null;
+    if (!event) return;
     return state.user.byId[event.host] || null;
-  }) as User || null;
+  })
 
-  const isEventHost = event?.host === host.uid
-
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const isEventHost = event?.host === currentUser?.uid
 
   if (!event) {
     return <div>Event not found</div>;
@@ -38,17 +47,13 @@ const EventDetails: React.FC = () => {
     navigate(`/explore/${event.id}/edit`);
   };
 
-  let isHost = true;
-  let currentUser = true;
-  // later compare ids of both
-
   return (
     <div className="max-w-4xl mx-auto my-20 p-8 bg-white rounded-lg shadow-lg">
       <img src={event.coverImg} alt={event.title} className="w-full h-64 object-cover rounded-lg mb-6" />
       <h1 className="text-3xl font-bold mb-4">{event.title}</h1>
       <p className="text-gray-700 mb-4">{event.description}</p>
       <p className="text-gray-700 mb-4">Hosted by:
-        <Link to={`/profile/${host.uid}`}> <span className="text-blue-700 font-bold underline"> {host.displayName}</span></Link></p>
+        <Link to={`/profile/${host?.uid}`}> <span className="text-blue-700 font-bold underline"> {host?.displayName}</span></Link></p>
       <p className="text-gray-700 mb-4">Price: {event.price === 0 ? 'Free' : '$' + event.price}</p>
       <p className="text-gray-700 mb-4">Open Spots: {event.openSpots}</p>
       <div className="flex items-center mt-4">

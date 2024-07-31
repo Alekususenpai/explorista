@@ -8,10 +8,30 @@ interface UserState {
 }
 
 const testInfo = {
+  '05hi2mb7shdmAcUWEooKl4V1FW02': {
+    "uid": "05hi2mb7shdmAcUWEooKl4V1FW02",
+    "email": "sinonsenpai2@gmail.com",
+    "displayName": "Sinon",
+    "photoURL": "",
+    "bio": "No bio yet",
+    "isHost": false,
+    "eventsHosted": [],
+    "eventsAttending": []
+  },
+  'zdr5rapILdSehchTitXLvrJk86M2': {
+    "uid": "zdr5rapILdSehchTitXLvrJk86M2",
+    "email": "aa_lara@live.com",
+    "displayName": "Lara",
+    "photoURL": "",
+    "bio": "No bio yet",
+    "isHost": false,
+    "eventsHosted": [],
+    "eventsAttending": []
+  },
   'tH1Dnm1zZISidaLFqlXOounsllx1': {
     "uid": "tH1Dnm1zZISidaLFqlXOounsllx1",
-    "email": "sinonsenpai2@gmail.com",
-    "displayName": "Unauthorized person",
+    "email": "aleksandrajovanovska218@gmail.com",
+    "displayName": "Aleksa 218",
     "photoURL": "",
     "bio": "No bio yet",
     "isHost": false,
