@@ -2,7 +2,6 @@ import React, { useRef, useState, useEffect, ChangeEvent, FormEvent } from "reac
 import { illustration } from "../assets";
 import emailjs, { EmailJSResponseStatus } from "@emailjs/browser";
 
-
 type FormState = {
   name: string;
   email: string;
@@ -30,9 +29,9 @@ const ToastMessage: React.FC<{ isSent: boolean }> = ({ isSent }) => {
       >
         <path
           stroke="white"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
           d="m9 17 8 2L9 1 1 19l8-2Zm0 0V9"
         />
       </svg>
@@ -56,13 +55,14 @@ const Contact = () => {
   const [isSent, setIsSent] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowToast(false);
-    }, 4000);
+    if (showToast) {
+      const timer = setTimeout(() => {
+        setShowToast(false);
+      }, 5000);
 
-    return () => clearTimeout(timer);
+      return () => clearTimeout(timer);
+    }
   }, [showToast]);
-
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -104,73 +104,61 @@ const Contact = () => {
         (error) => {
           setLoading(false);
           setShowToast(true);
+          setIsSent(false);
           console.error(error);
         }
       );
   };
 
   return (
-    <div
-      className={`py-32 flex md:flex-row flex-col-reverse items-center justify-center gap-[100px]`}
-    >
+    <div className={`py-32 flex md:flex-row flex-col-reverse items-center justify-center gap-[100px]`}>
       <div className="w-full md:w-[400px] p-8 rounded-2xl bg-primary">
-        {showToast && <ToastMessage isSent={isSent} />}
-        <form
-          ref={formRef}
-          onSubmit={handleSubmit}
-          className="mt-7 flex flex-col gap-8"
-        >
-          <label className="flex flex-col">
-            <span className="passage passage-white">Your Name</span>
-            <input
-              type="text"
-              name="name"
-              value={form.name}
-              onChange={handleChange}
-              placeholder="What's your name?"
-              className="placeholder"
-            />
-          </label>
-          <label className="flex flex-col">
-            <span className="passage passage-white">Your email</span>
-            <input
-              type="email"
-              name="email"
-              value={form.email}
-              onChange={handleChange}
-              placeholder="What's your email address?"
-              className="placeholder"
-            />
-          </label>
-          <label className="flex flex-col">
-            <span className="passage passage-white">Your Message</span>
-            <textarea
-              rows={4}
-              name="message"
-              value={form.message}
-              onChange={handleChange}
-              placeholder="How can we help you?"
-              className="placeholder"
-            />
-          </label>
-
-          <button
-            type="submit"
-            className="btn-primary border border-white/60"
-          >
-            {loading ? "Sending..." : "Send"}
-          </button>
-        </form>
+        {showToast ? (
+          <ToastMessage isSent={isSent} />
+        ) : (
+          <form ref={formRef} onSubmit={handleSubmit} className="mt-7 flex flex-col gap-8">
+            <label className="flex flex-col">
+              <span className="passage passage-white">Your Name</span>
+              <input
+                type="text"
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+                placeholder="What's your name?"
+                className="placeholder"
+              />
+            </label>
+            <label className="flex flex-col">
+              <span className="passage passage-white">Your email</span>
+              <input
+                type="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                placeholder="What's your email address?"
+                className="placeholder"
+              />
+            </label>
+            <label className="flex flex-col">
+              <span className="passage passage-white">Your Message</span>
+              <textarea
+                rows={4}
+                name="message"
+                value={form.message}
+                onChange={handleChange}
+                placeholder="How can we help you?"
+                className="placeholder"
+              />
+            </label>
+            <button type="submit" className="btn-primary border border-white/60">
+              {loading ? "Sending..." : "Send"}
+            </button>
+          </form>
+        )}
       </div>
       <div className="shadow-2xl shadow-pink-100">
-        <p className="heading text-center">
-          Get in touch. Contact us.
-        </p>
-        <img
-          src={illustration}
-          alt="Travel illustrations by Storyset"
-          className="mx-auto w-[480px]"
-        />
+        <p className="heading text-center">Get in touch. Contact us.</p>
+        <img src={illustration} alt="Travel illustrations by Storyset" className="mx-auto w-[480px]" />
       </div>
     </div>
   );
