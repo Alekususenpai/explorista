@@ -73,7 +73,7 @@ const Contact = () => {
     });
   };
 
-  emailjs.init(import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY)
+  emailjs.init("Ul8elbUClo_jPphgC")
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
