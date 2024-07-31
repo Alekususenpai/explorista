@@ -34,14 +34,14 @@ const Login = () => {
     }, []);
 
     return (
-        <div className="my-10 flex h-screen">
+        <div className="my-10 flex h-screen justify-center">
             <div className="w-full md:w-1/2 flex flex-col justify-center items-center p-8 bg-white bg-opacity-50 shadow-lg">
                 <h1 className="text-3xl font-bold mb-8">Welcome back!</h1>
                 <div className="w-full max-w-xs">
                     <div id="firebaseui-auth-container"></div>
                 </div>
             </div>
-            <div className="hidden md:block md:w-1/2 object-contain">
+            <div className="hidden md:block object-contain">
                 <img src={loginBg} alt="Log in background" className="h-full" />
             </div>
         </div>
