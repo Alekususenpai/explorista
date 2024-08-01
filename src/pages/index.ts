@@ -9,4 +9,4 @@ export { default as EditProfile } from './EditProfile';
 export { default as CreateEvent } from './CreateEvent';
 export { default as EventDetails } from './EventDetails';
 export { default as EditEvent } from './EditEvent';
-export { default as Error } from './Error';
+export { default as ErrorPage } from './ErrorPage';
