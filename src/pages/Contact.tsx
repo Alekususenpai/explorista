@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect, ChangeEvent, FormEvent } from "react";
 import { illustration } from "../assets";
 import emailjs, { EmailJSResponseStatus } from "@emailjs/browser";
-import env from "../../emailjsEnv"
+import emailjsEnv from "../../emailjsEnv"
 
 type FormStateType = {
   name: string;
@@ -81,10 +81,10 @@ const Contact = () => {
     if (formRef.current) {
       emailjs
         .sendForm(
-          env.VITE_APP_EMAILJS_SERVICE_ID,
-          env.VITE_APP_EMAILJS_TEMPLATE_ID,
+          emailjsEnv.VITE_APP_EMAILJS_SERVICE_ID,
+          emailjsEnv.VITE_APP_EMAILJS_TEMPLATE_ID,
           formRef.current,
-          env.VITE_APP_EMAILJS_PUBLIC_KEY
+          emailjsEnv.VITE_APP_EMAILJS_PUBLIC_KEY
         )
         .then(
           (response: EmailJSResponseStatus) => {
